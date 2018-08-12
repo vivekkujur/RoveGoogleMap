@@ -1,0 +1,2 @@
+include ':library', ':app1', ':myapplication'
+include ':demo'

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoPanelHeight="100dp"
+    sothree:umanoShadowHeight="4dp"
+    sothree:umanoOverlay="true"
+    sothree:umanoDragView="@+id/dragView">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+
+        tools:context=".MainActivity">
+
+        <fragment
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            tools:context=".MainActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+        <!-- layout for search bar top of the layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            android:background="#ffffff"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/ic_des_image"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_des"
+                                    />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/ic_des_image"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:textColor="#000"
+                android:id="@+id/des_search"
+                android:background="@null"
+                android:hint="Enter your destination"
+                                    />
+
+        </RelativeLayout>
+
+         <!--Custom Gps button on the bottom of map -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="115dp"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/gps_shape"
+            android:elevation="10dp"
+            android:id="@+id/_current_location_button"
+            android:clickable="true"
+            >
+
+            <ImageView
+                android:id="@+id/img_gps"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_gps"
+                />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+ <!--drag layout    ......................................-->
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/dragView"
+            android:orientation="vertical"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:background="@android:color/transparent"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+            <RelativeLayout
+                android:id="@+id/layoutTop"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" >
+            </RelativeLayout>
+
+
+            <!--drag view background color white -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/draglayout_style"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/slidelayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+
+                  >
+                    <TextView
+                        android:id="@+id/car_no"
+                        style="@style/QText"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_vertical"
+                        android:paddingTop="10dp"
+                        android:text="KA 19 A 5000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/car_name"
+                        style="@style/QText"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/car_no"
+                        android:gravity="center_vertical"
+                        android:text="Mahindra e20 Plus"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+
+              <!--layout to show address of destination-->
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:clipToPadding="false"
+                    android:elevation="3dp"
+                    android:background="@drawable/layoutshadow"
+                    android:id="@+id/deslayout">
+
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_des1"
+                        android:id="@+id/des"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_toRightOf="@+id/des"
+                        android:gravity="center_vertical"
+                        android:id="@+id/parkinglocation"
+                        style="@style/RText"
+                        android:text="Source parking location" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/parkinglocation"
+                        android:layout_toRightOf="@+id/des"
+                        android:textStyle="bold"
+                        style="@style/QText"
+                        android:text="Parking No 2, 3rd B Main Road, 22nd Cross, Sector 7, HSR Layout. 560102" />
+
+                </RelativeLayout>
+
+
+               <!-- layout to show distance left for destination-->
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:elevation="3dp"
+                    android:clipToPadding="false"
+                    android:id="@+id/speedlayout"
+                    android:background="@drawable/layoutshadow">
+
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_speed1"
+
+                        android:id="@+id/speed"/>
+
+                    <TextView
+                        android:layout_width="332dp"
+                        android:layout_height="29dp"
+                        android:paddingLeft="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_toRightOf="@+id/speed"
+                        android:gravity="center_vertical"
+                        android:id="@+id/kilometer"
+                        style="@style/RText"
+                        android:text="Kilometers left" />
+
+                    <TextView
+                        android:layout_width="333dp"
+                        android:layout_height="32dp"
+                        android:paddingLeft="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/kilometer"
+                        android:layout_toRightOf="@+id/speed"
+                        android:textStyle="bold"
+                        android:text="30 km"
+                        style="@style/QText"
+                        />
+
+
+
+                </RelativeLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:layout_marginRight="10dp"
+                    android:progress="80"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <!--layout for cancel or contact us button  -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/ca_call_layout"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:elevation="4dp"
+                        android:clipToPadding="false"
+                        android:background="@drawable/layoutshadow">
+
+
+                        <ImageView
+                            android:id="@+id/cancel_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_cancel"
+                            />
+
+                        <TextView
+                            android:id="@+id/cancel_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="Cancel"
+                            android:textSize="15dp"
+                            style="@style/RText"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:elevation="4dp"
+                        android:clipToPadding="false"
+                        android:background="@drawable/layoutshadow">
+
+
+                        <ImageView
+                            android:id="@+id/call_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_call"
+                            />
+
+                        <TextView
+                            android:id="@+id/contact_us"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="Contact Us"
+                            android:textSize="15dp"
+                            style="@style/RText"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/car"
+                android:layout_width="174dp"
+                android:layout_height="80dp"
+                android:src="@drawable/car" />
+
+        </RelativeLayout>
+
+
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
